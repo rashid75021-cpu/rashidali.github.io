@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rashid Ali | Odoo Developer & Accountant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#0D1117;--bg2:#161B22;--bg3:#1C2128;
+  --cyan:#00D9FF;--cyan2:#64FFDA;--orange:#FF6B35;
+  --white:#F0F6FC;--gray:#8B949E;--lgray:#C9D1D9;
+  --border:#30363D;--card:#1C2128;--green:#3FB950;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:3px;}
+.top-bar{height:3px;background:linear-gradient(90deg,var(--orange),#FF4500,var(--orange));position:fixed;top:0;width:100%;z-index:1001;}
+nav{position:fixed;top:3px;width:100%;z-index:1000;background:rgba(13,17,23,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 6%;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none;}
+.logo em{color:var(--cyan);font-style:normal;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:0.82rem;font-weight:500;padding:0.4rem 0.8rem;border-radius:6px;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);background:rgba(0,217,255,0.08);}
+.nav-right{display:flex;align-items:center;gap:0.75rem;}
+.hire-btn{background:var(--cyan);color:#000;padding:0.45rem 1.4rem;border-radius:50px;font-size:0.82rem;font-weight:700;text-decoration:none;transition:all 0.25s;}
+.hire-btn:hover{background:#00c4e8;transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,217,255,0.35);}
+.nav-icon{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2ea44f,#3fb950);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;}
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px 6% 60px;position:relative;overflow:hidden;}
+.hbg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,217,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,217,255,0.03) 1px,transparent 1px);background-size:50px 50px;}
+.hblob{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:420px;height:420px;background:radial-gradient(circle,rgba(0,217,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.hleft{position:relative;z-index:1;flex:1;max-width:620px;}
+.avail{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(63,185,80,0.1);border:1px solid rgba(63,185,80,0.3);color:var(--green);padding:0.35rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:600;letter-spacing:0.05em;margin-bottom:1.8rem;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hgreet{color:var(--gray);font-size:1.1rem;margin-bottom:0.4rem;}
+.hname{font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1rem;}
+.hname span{color:var(--cyan);}
+.htyping{font-size:1.1rem;color:var(--gray);margin-bottom:1rem;display:flex;align-items:center;min-height:1.8rem;}
+.typed-text{color:var(--cyan2);font-weight:500;}
+.cursor{display:inline-block;width:2px;height:1.2em;background:var(--cyan);margin-left:2px;animation:blink 0.8s infinite;vertical-align:text-bottom;}
+.hsub{color:var(--gray);font-size:0.95rem;line-height:1.8;margin-bottom:2.2rem;max-width:540px;}
+.hsub strong{color:var(--lgray);}
+.hbtns{display:flex;gap:0.85rem;flex-wrap:wrap;margin-bottom:3rem;}
+.bcyan{background:var(--cyan);color:#000;padding:0.8rem 1.8rem;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.88rem;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.25s;}
+.bcyan:hover{background:#00c4e8;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,217,255,0.3);}
+.bghost{border:1px solid var(--border);color:var(--lgray);padding:0.8rem 1.8rem;border-radius:8px;font-weight:500;text-decoration:none;font-size:0.88rem;transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem;}
+.bghost:hover{border-color:var(--cyan);color:var(--cyan);}
+.hstats{display:flex;gap:3rem;}
+.hsnum{font-size:2rem;font-weight:800;color:var(--cyan2);line-height:1;}
+.hslbl{font-size:0.75rem;color:var(--gray);margin-top:0.3rem;}
+.hright{position:relative;z-index:1;flex-shrink:0;margin-left:4rem;}
+.pwrap{width:280px;height:280px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--cyan2));padding:3px;}
+.pinner{width:100%;height:100%;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:5rem;color:var(--cyan);}
+.scroll-down{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;color:var(--gray);font-size:0.72rem;letter-spacing:0.1em;animation:bounce 2s infinite;cursor:pointer;text-decoration:none;}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+section{padding:5rem 6%;}
+.eyebrow{color:var(--gray);font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.6rem;}
+.stitle{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-1px;margin-bottom:0.8rem;}
+.sdesc{color:var(--gray);line-height:1.8;max-width:540px;margin-bottom:3rem;}
+.altbg{background:var(--bg2);}
+.agrid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start;}
+.atext{color:var(--gray);line-height:1.9;}
+.atext p{margin-bottom:1.1rem;}
+.atext strong{color:var(--lgray);}
+.atable{margin-top:2rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.arow{display:grid;grid-template-columns:110px 1fr;border-bottom:1px solid var(--border);}
+.arow:last-child{border-bottom:none;}
+.akey{padding:0.7rem 1rem;background:rgba(0,217,255,0.04);color:var(--cyan);font-size:0.8rem;font-weight:600;}
+.aval{padding:0.7rem 1rem;color:var(--lgray);font-size:0.83rem;}
+.aval.open{color:var(--green);font-weight:600;}
+.acards{display:flex;flex-direction:column;gap:1rem;}
+.acard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.3rem;display:flex;gap:1rem;align-items:flex-start;transition:all 0.3s;}
+.acard:hover{border-color:var(--cyan);transform:translateX(4px);}
+.acicon{width:42px;height:42px;min-width:42px;border-radius:8px;background:rgba(0,217,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1.05rem;}
+.act{font-weight:700;font-size:0.9rem;margin-bottom:0.3rem;}
+.acd{color:var(--gray);font-size:0.8rem;line-height:1.6;}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.8rem;transition:all 0.3s;position:relative;overflow:hidden;}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--cyan2));opacity:0;transition:opacity 0.3s;}
+.sc:hover{border-color:var(--cyan);transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,0.3);}
+.sc:hover::before{opacity:1;}
+.scbadge{position:absolute;top:1.2rem;right:1.2rem;background:rgba(0,217,255,0.12);border:1px solid rgba(0,217,255,0.3);color:var(--cyan);padding:0.15rem 0.6rem;border-radius:3px;font-size:0.68rem;font-weight:600;}
+.scnum{color:var(--gray);font-size:0.7rem;letter-spacing:0.1em;margin-bottom:1rem;}
+.scicon{width:48px;height:48px;border-radius:10px;background:rgba(0,217,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1.2rem;margin-bottom:1.1rem;}
+.sc h3{font-size:0.95rem;font-weight:700;margin-bottom:0.6rem;}
+.sc p{color:var(--gray);font-size:0.82rem;line-height:1.7;margin-bottom:1.1rem;}
+.sclist{list-style:none;}
+.sclist li{color:var(--gray);font-size:0.8rem;padding:0.2rem 0;padding-left:1rem;position:relative;}
+.sclist li::before{content:'▸';position:absolute;left:0;color:var(--cyan);font-size:0.65rem;top:0.35rem;}
+.tl{position:relative;margin-top:1rem;}
+.tl::before{content:'';position:absolute;left:0;top:12px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--cyan),transparent);}
+.te{padding-left:2.2rem;padding-bottom:3rem;position:relative;}
+.te:last-child{padding-bottom:0;}
+.te::before{content:'';position:absolute;left:-5px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--cyan);border:2px solid var(--bg);box-shadow:0 0 0 3px rgba(0,217,255,0.2);}
+.tbadge{display:inline-block;background:rgba(0,217,255,0.1);border:1px solid rgba(0,217,255,0.3);color:var(--cyan);padding:0.18rem 0.75rem;border-radius:20px;font-size:0.7rem;font-weight:600;margin-bottom:0.7rem;}
+.trole{font-size:1.1rem;font-weight:700;margin-bottom:0.2rem;}
+.tco{color:var(--cyan);font-size:0.88rem;font-weight:500;margin-bottom:0.15rem;}
+.tper{color:var(--gray);font-size:0.78rem;margin-bottom:1rem;}
+.tpts{list-style:none;}
+.tpts li{color:var(--gray);font-size:0.85rem;line-height:1.75;padding:0.28rem 0;padding-left:1.2rem;position:relative;}
+.tpts li::before{content:'▸';position:absolute;left:0;color:var(--cyan2);font-size:0.65rem;top:0.4rem;}
+.tpts li strong{color:var(--lgray);}
+.ttags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+.ttag{background:rgba(0,217,255,0.06);border:1px solid rgba(0,217,255,0.2);color:var(--cyan);padding:0.2rem 0.6rem;border-radius:4px;font-size:0.72rem;font-weight:500;}
+.skwrap{display:grid;grid-template-columns:repeat(2,1fr);gap:3rem;}
+.sktitle{font-size:0.8rem;font-weight:700;color:var(--cyan2);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.5rem;}
+.skrow{margin-bottom:1.1rem;}
+.skmeta{display:flex;justify-content:space-between;margin-bottom:0.4rem;}
+.skname{font-size:0.85rem;color:var(--lgray);}
+.skpct{font-size:0.75rem;color:var(--cyan);font-weight:600;}
+.sktrack{height:3px;background:rgba(0,217,255,0.1);border-radius:2px;}
+.skfill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--cyan),var(--cyan2));}
+.pfilters{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.pf{background:transparent;border:1px solid var(--border);color:var(--gray);padding:0.4rem 1rem;border-radius:20px;font-size:0.78rem;cursor:pointer;transition:all 0.25s;font-family:'Inter',sans-serif;}
+.pf:hover,.pf.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,217,255,0.08);}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all 0.3s;}
+.pc:hover{border-color:var(--cyan);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.3);}
+.pch{padding:1.4rem 1.4rem 0;display:flex;justify-content:space-between;align-items:flex-start;}
+.pctype{background:rgba(0,217,255,0.08);border:1px solid rgba(0,217,255,0.2);color:var(--cyan);padding:0.15rem 0.55rem;border-radius:4px;font-size:0.68rem;font-weight:600;}
+.pcact{color:var(--gray);font-size:0.78rem;cursor:pointer;transition:color 0.2s;}
+.pcact:hover{color:var(--cyan);}
+.pcb{padding:1rem 1.4rem 1.4rem;}
+.pctitle{font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;}
+.pcdesc{color:var(--gray);font-size:0.8rem;line-height:1.65;margin-bottom:0.8rem;}
+.pcmeta{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.pm{font-size:0.72rem;color:var(--cyan2);display:flex;align-items:center;gap:0.3rem;}
+.rgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+.rc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem;transition:all 0.3s;}
+.rc:hover{border-color:rgba(0,217,255,0.3);}
+.rstars{color:#f0b429;font-size:0.85rem;margin-bottom:0.9rem;letter-spacing:2px;}
+.rtext{color:var(--gray);font-size:0.85rem;line-height:1.8;margin-bottom:1.2rem;font-style:italic;}
+.rauthor{display:flex;align-items:center;gap:0.9rem;}
+.ravatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--cyan2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;color:#000;flex-shrink:0;}
+.rname{font-size:0.85rem;font-weight:600;margin-bottom:0.1rem;}
+.rrole{font-size:0.75rem;color:var(--gray);}
+.cwrap{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;}
+.cinfo h3{font-size:1.4rem;font-weight:700;margin-bottom:0.6rem;}
+.cinfo p{color:var(--gray);line-height:1.8;margin-bottom:1.8rem;}
+.ccard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0.9rem 1.1rem;margin-bottom:0.7rem;display:flex;align-items:center;gap:0.9rem;transition:all 0.25s;}
+.ccard:hover{border-color:var(--cyan);}
+.ccicon{width:38px;height:38px;min-width:38px;border-radius:7px;background:rgba(0,217,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:0.9rem;}
+.ccd span{display:block;font-size:0.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.08em;}
+.ccd strong{font-size:0.85rem;color:var(--lgray);}
+.cform{display:flex;flex-direction:column;gap:0.9rem;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;}
+.fg{display:flex;flex-direction:column;gap:0.3rem;}
+.fg label{font-size:0.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;}
+.fg input,.fg textarea,.fg select{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:0.7rem 0.9rem;color:var(--white);font-family:'Inter',sans-serif;font-size:0.85rem;outline:none;transition:border-color 0.25s;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--cyan);}
+.fg textarea{resize:vertical;min-height:105px;}
+.fg select option{background:var(--bg2);color:var(--white);}
+.sbtn{background:var(--cyan);color:#000;border:none;padding:0.8rem 1.8rem;border-radius:7px;font-family:'Inter',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem;width:fit-content;}
+.sbtn:hover{background:#00c4e8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,217,255,0.3);}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.flogo{font-size:1.1rem;font-weight:800;}
+.flogo em{color:var(--cyan);font-style:normal;}
+footer p{color:var(--gray);font-size:0.78rem;}
+.flinks{display:flex;gap:1.5rem;}
+.flinks a{color:var(--gray);text-decoration:none;font-size:0.78rem;transition:color 0.2s;}
+.flinks a:hover{color:var(--cyan);}
+.fsoc{display:flex;gap:0.6rem;}
+.fsoc a{width:34px;height:34px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--gray);text-decoration:none;font-size:0.8rem;transition:all 0.2s;}
+.fsoc a:hover{border-color:var(--cyan);color:var(--cyan);}
+@media(max-width:1024px){.agrid,.cwrap{grid-template-columns:1fr;gap:2.5rem;}.hright{display:none;}.sgrid,.pgrid{grid-template-columns:1fr 1fr;}.skwrap{grid-template-columns:1fr;}}
+@media(max-width:768px){.nav-links{display:none;}.sgrid,.pgrid,.rgrid{grid-template-columns:1fr;}.hstats{gap:2rem;}.frow{grid-template-columns:1fr;}footer{flex-direction:column;text-align:center;}}
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+<nav>
+  <a href="#hero" class="logo">Rashid<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="#hero" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#contact" class="hire-btn">Hire Me</a>
+    <div class="nav-icon"><i class="fas fa-leaf"></i></div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hbg"></div><div class="hblob"></div>
+  <div class="hleft">
+    <div class="avail"><span class="dot"></span>Available for Freelance Projects</div>
+    <p class="hgreet">Hi, I'm</p>
+    <h1 class="hname">Rashid <span>Ali</span></h1>
+    <div class="htyping">I deliver&nbsp;<span class="typed-text" id="typed"></span><span class="cursor"></span></div>
+    <p class="hsub">Odoo Developer &amp; Accountant combining <strong>deep ERP expertise</strong> with real-world <strong>financial management knowledge</strong>. Clean implementations. Accurate books. Systems your team actually uses.</p>
+    <div class="hbtns">
+      <a href="#contact" class="bcyan"><i class="fas fa-paper-plane"></i>Start a Project</a>
+      <a href="#experience" class="bghost"><i class="fas fa-briefcase"></i>View My Work</a>
+    </div>
+    <div class="hstats">
+      <div><div class="hsnum">4+</div><div class="hslbl">Years Experience</div></div>
+      <div><div class="hsnum">10+</div><div class="hslbl">Projects Delivered</div></div>
+      <div><div class="hsnum">500+</div><div class="hslbl">SKUs Managed</div></div>
+    </div>
+  </div>
+  <div class="hright"><div class="pwrap"><div class="pinner"><i class="fas fa-user"></i></div></div></div>
+  <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i><span>Scroll Down</span></a>
+</section>
+
+<section id="about" class="altbg">
+  <div class="eyebrow">Get To Know Me</div>
+  <h2 class="stitle">About Me</h2>
+  <p class="sdesc">Turning business challenges into streamlined ERP solutions with accuracy and reliability.</p>
+  <div class="agrid">
+    <div>
+      <div class="atext">
+        <p>I'm a passionate <strong>Odoo Developer &amp; Accountant</strong> with 4+ years of hands-on expertise implementing and configuring Odoo ERP systems for businesses across trading, retail, and services industries.</p>
+        <p>What sets me apart: I understand both the <strong>technical architecture of Odoo</strong> and the <strong>financial logic behind the numbers</strong>. Most developers configure systems. Most accountants spot errors. I do both — meaning the system I deliver is one your finance team trusts from day one.</p>
+        <p>My goal is to help businesses <strong>automate, optimize, and scale</strong> through tailored Odoo implementations with zero-error reconciliations and reports management can rely on.</p>
+      </div>
+      <div class="atable">
+        <div class="arow"><div class="akey">Location</div><div class="aval">Lahore, Pakistan</div></div>
+        <div class="arow"><div class="akey">Email</div><div class="aval">rashid75021@gmail.com</div></div>
+        <div class="arow"><div class="akey">Phone</div><div class="aval">+92 324 0501875</div></div>
+        <div class="arow"><div class="akey">Degree</div><div class="aval">BASc &amp; BS IT — PUCIT</div></div>
+        <div class="arow"><div class="akey">Status</div><div class="aval open">&#9679; Open to Work</div></div>
+      </div>
+    </div>
+    <div class="acards">
+      <div class="acard"><div class="acicon"><i class="fas fa-cube"></i></div><div><div class="act">Odoo ERP Implementation</div><div class="acd">Full-cycle Odoo setup across Sales, Purchase, Inventory, Accounting, CRM, and eCommerce. Versions 13–17.</div></div></div>
+      <div class="acard"><div class="acicon"><i class="fas fa-calculator"></i></div><div><div class="act">Financial Accounting</div><div class="acd">AR/AP management, bank reconciliation, P&amp;L, balance sheets — all fully integrated and accurate in Odoo.</div></div></div>
+      <div class="acard"><div class="acicon"><i class="fas fa-boxes"></i></div><div><div class="act">Inventory &amp; Data Management</div><div class="acd">500+ SKU catalogs, multi-warehouse setup, reorder rules, stock valuation, and high-volume data entry.</div></div></div>
+      <div class="acard"><div class="acicon"><i class="fas fa-chalkboard-teacher"></i></div><div><div class="act">Training &amp; Support</div><div class="acd">I train your team to run the system independently — 40% improvement in staff adoption on average.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="eyebrow">What I Offer</div>
+  <h2 class="stitle">My Services</h2>
+  <p class="sdesc">Comprehensive Odoo and accounting solutions tailored to your business needs.</p>
+  <div class="sgrid">
+    <div class="sc"><div class="scnum">01</div><div class="scicon"><i class="fas fa-cogs"></i></div><h3>Odoo ERP Setup &amp; Configuration</h3><p>Full Odoo implementation from scratch — workflows, user roles, module configuration, and go-live support.</p><ul class="sclist"><li>Full Module Configuration</li><li>Workflow Automation</li><li>User Roles &amp; Permissions</li></ul></div>
+    <div class="sc" style="border-color:rgba(0,217,255,0.3)"><span class="scbadge">Most Popular</span><div class="scnum">02</div><div class="scicon"><i class="fas fa-calculator"></i></div><h3>Accounting &amp; Financial Management</h3><p>Chart of Accounts, AR/AP cycles, bank reconciliation, P&amp;L, balance sheets — all integrated and accurate.</p><ul class="sclist"><li>Bookkeeping &amp; AR/AP</li><li>Bank Reconciliation</li><li>Financial Reporting</li></ul></div>
+    <div class="sc"><div class="scnum">03</div><div class="scicon"><i class="fas fa-warehouse"></i></div><h3>Inventory &amp; Warehouse Management</h3><p>Multi-warehouse setup, product catalog management, reorder rules, and FIFO valuation for trading businesses.</p><ul class="sclist"><li>Multi-Warehouse Setup</li><li>Reorder Rules</li><li>Stock Valuation (FIFO)</li></ul></div>
+    <div class="sc"><div class="scnum">04</div><div class="scicon"><i class="fas fa-database"></i></div><h3>Data Entry &amp; Product Migration</h3><p>Accurate high-volume data entry — product uploads, supplier records, SKU management, and catalog imports.</p><ul class="sclist"><li>Product Import / Upload</li><li>SKU Management</li><li>Database Management</li></ul></div>
+    <div class="sc"><div class="scnum">05</div><div class="scicon"><i class="fas fa-chart-bar"></i></div><h3>Odoo Audit &amp; Optimization</h3><p>Review your existing Odoo setup, fix broken workflows, improve reporting accuracy, optimize for efficiency.</p><ul class="sclist"><li>System Audit</li><li>Workflow Optimization</li><li>Report Customization</li></ul></div>
+    <div class="sc"><div class="scnum">06</div><div class="scicon"><i class="fas fa-headset"></i></div><h3>Ongoing Odoo Support</h3><p>Reliable long-term support — same day urgent response, 24–48 hours standard, consistent availability.</p><ul class="sclist"><li>Same Day Urgent Response</li><li>Long-Term Availability</li><li>User Training</li></ul></div>
+  </div>
+</section>
+
+<section id="experience" class="altbg">
+  <div class="eyebrow">My Journey</div>
+  <h2 class="stitle">Work Experience</h2>
+  <div class="tl">
+    <div class="te">
+      <span class="tbadge">Current Role</span>
+      <div class="trole">Odoo Developer &amp; Accountant</div>
+      <div class="tco">Adam Sheikh Traders — Lahore, Pakistan</div>
+      <div class="tper">January 2021 — Present</div>
+      <ul class="tpts">
+        <li>Implemented and configured Odoo ERP from scratch — Sales, Inventory, Purchasing, and Accounting workflows fully operational</li>
+        <li>Managed complete AR/AP cycles including invoicing, payments, and reconciliation across all accounts</li>
+        <li>Built and maintained a product catalog of <strong>500+ SKUs</strong> with real-time inventory tracking and reorder rules</li>
+        <li>Performed monthly bank reconciliations with <strong>zero discrepancy errors</strong> consistently across all accounts</li>
+        <li>Produced P&amp;L statements, balance sheets, and cash flow reports used directly by management for business decisions</li>
+        <li>Delivered internal training that improved staff Odoo adoption by <strong>40%</strong> within three months</li>
+      </ul>
+      <div class="ttags"><span class="ttag">Odoo</span><span class="ttag">Accounting</span><span class="ttag">Inventory</span><span class="ttag">AR/AP</span><span class="ttag">Excel</span></div>
+    </div>
+    <div class="te">
+      <div class="trole">Freelance Odoo Developer &amp; Data Entry Specialist</div>
+      <div class="tco">Self-Employed — Remote</div>
+      <div class="tper">2020 — Present</div>
+      <ul class="tpts">
+        <li>Delivered <strong>10+ Odoo setup and configuration projects</strong> for clients across retail, trading, and services sectors</li>
+        <li>Configured Sales and Purchase modules including quotation templates, vendor pricelists, and approval workflows</li>
+        <li>Assisted clients with full Odoo Accounting setup — Chart of Accounts, tax configuration, and invoicing structures</li>
+        <li>Managed large-scale product data entry and SKU management for eCommerce and trading clients</li>
+        <li><strong>Reduced client issue resolution time by 50%</strong> through proactive monitoring and support</li>
+      </ul>
+      <div class="ttags"><span class="ttag">Odoo</span><span class="ttag">Data Entry</span><span class="ttag">Excel</span><span class="ttag">PostgreSQL</span><span class="ttag">Canva</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="eyebrow">My Expertise</div>
+  <h2 class="stitle">Technical Skills</h2>
+  <div class="skwrap">
+    <div>
+      <div class="sktitle">Odoo ERP</div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Odoo Configuration (v13–v17)</span><span class="skpct">90%</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Sales &amp; Purchase Modules</span><span class="skpct">90%</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Inventory &amp; Warehouse</span><span class="skpct">88%</span></div><div class="sktrack"><div class="skfill" style="width:88%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Odoo Accounting Module</span><span class="skpct">90%</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">CRM &amp; eCommerce</span><span class="skpct">80%</span></div><div class="sktrack"><div class="skfill" style="width:80%"></div></div></div>
+    </div>
+    <div>
+      <div class="sktitle">Accounting &amp; Finance</div>
+      <div class="skrow"><div class="skmeta"><span class="skname">AR/AP &amp; Reconciliation</span><span class="skpct">95%</span></div><div class="sktrack"><div class="skfill" style="width:95%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Financial Reporting (P&amp;L, BS)</span><span class="skpct">90%</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Chart of Accounts Setup</span><span class="skpct">88%</span></div><div class="sktrack"><div class="skfill" style="width:88%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Tax Configuration</span><span class="skpct">85%</span></div><div class="sktrack"><div class="skfill" style="width:85%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Bookkeeping</span><span class="skpct">92%</span></div><div class="sktrack"><div class="skfill" style="width:92%"></div></div></div>
+    </div>
+    <div>
+      <div class="sktitle">Tools &amp; Data</div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Data Entry &amp; SKU Management</span><span class="skpct">96%</span></div><div class="sktrack"><div class="skfill" style="width:96%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Microsoft Excel</span><span class="skpct">90%</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Google Sheets</span><span class="skpct">88%</span></div><div class="sktrack"><div class="skfill" style="width:88%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">PostgreSQL (Basic)</span><span class="skpct">65%</span></div><div class="sktrack"><div class="skfill" style="width:65%"></div></div></div>
+    </div>
+    <div>
+      <div class="sktitle">Soft Skills</div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Client Communication</span><span class="skpct">88%</span></div><div class="sktrack"><div class="skfill" style="width:88%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">User Training &amp; Onboarding</span><span class="skpct">90%</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Problem Solving</span><span class="skpct">88%</span></div><div class="sktrack"><div class="skfill" style="width:88%"></div></div></div>
+      <div class="skrow"><div class="skmeta"><span class="skname">Documentation</span><span class="skpct">85%</span></div><div class="sktrack"><div class="skfill" style="width:85%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="altbg">
+  <div class="eyebrow">My Work</div>
+  <h2 class="stitle">Project Gallery</h2>
+  <p class="sdesc">A showcase of Odoo implementations and configurations delivered for real clients.</p>
+  <div class="pfilters">
+    <button class="pf active" onclick="fp('all',this)">All</button>
+    <button class="pf" onclick="fp('odoo',this)">Odoo ERP</button>
+    <button class="pf" onclick="fp('accounting',this)">Accounting</button>
+    <button class="pf" onclick="fp('inventory',this)">Inventory</button>
+    <button class="pf" onclick="fp('data',this)">Data Entry</button>
+  </div>
+  <div class="pgrid" id="pg">
+    <div class="pc" data-cat="odoo"><div class="pch"><span class="pctype">Odoo ERP</span><span class="pcact">View Details</span></div><div class="pcb"><div class="pctitle">Full Odoo ERP Implementation</div><div class="pcdesc">Complete Odoo setup for a trading company — Sales, Purchase, Inventory, Accounting from scratch with user training.</div><div class="pcmeta"><span class="pm"><i class="fas fa-check-circle"></i>Odoo v16</span><span class="pm"><i class="fas fa-users"></i>8 Users</span></div></div></div>
+    <div class="pc" data-cat="accounting"><div class="pch"><span class="pctype">Accounting</span><span class="pcact">View Details</span></div><div class="pcb"><div class="pctitle">Zero-Error Bank Reconciliation</div><div class="pcdesc">Monthly bank reconciliation across 3 accounts with zero discrepancy errors — integrated with Odoo Accounting module.</div><div class="pcmeta"><span class="pm"><i class="fas fa-check-circle"></i>Zero Errors</span><span class="pm"><i class="fas fa-building"></i>Trading Co.</span></div></div></div>
+    <div class="pc" data-cat="inventory"><div class="pch"><span class="pctype">Inventory</span><span class="pcact">View Details</span></div><div class="pcb"><div class="pctitle">500+ SKU Product Catalog</div><div class="pcdesc">Built and maintained a 500+ SKU product catalog with accurate inventory tracking, reorder rules, and real-time valuation.</div><div class="pcmeta"><span class="pm"><i class="fas fa-box"></i>500+ SKUs</span><span class="pm"><i class="fas fa-warehouse"></i>Multi-Warehouse</span></div></div></div>
+    <div class="pc" data-cat="accounting"><div class="pch"><span class="pctype">Accounting</span><span class="pcact">View Details</span></div><div class="pcb"><div class="pctitle">Odoo Accounting Setup</div><div class="pcdesc">Chart of Accounts configuration, tax setup, AR/AP workflows, and financial reporting for a retail business.</div><div class="pcmeta"><span class="pm"><i class="fas fa-check-circle"></i>Odoo v15</span><span class="pm"><i class="fas fa-store"></i>Retail</span></div></div></div>
+    <div class="pc" data-cat="odoo"><div class="pch"><span class="pctype">Odoo ERP</span><span class="pcact">View Details</span></div><div class="pcb"><div class="pctitle">Freelance Odoo Configuration</div><div class="pcdesc">10+ Odoo configuration projects across retail, trading, and services — quotation templates, pricelists, approval flows.</div><div class="pcmeta"><span class="pm"><i class="fas fa-trophy"></i>10+ Projects</span><span class="pm"><i class="fas fa-globe"></i>Remote</span></div></div></div>
+    <div class="pc" data-cat="data"><div class="pch"><span class="pctype">Data Entry</span><span class="pcact">View Details</span></div><div class="pcb"><div class="pctitle">eCommerce Product Import</div><div class="pcdesc">Large-scale product data entry and SKU management for eCommerce client — accurate catalog setup with zero import errors.</div><div class="pcmeta"><span class="pm"><i class="fas fa-database"></i>Bulk Import</span><span class="pm"><i class="fas fa-shopping-cart"></i>eCommerce</span></div></div></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="eyebrow">Client Reviews</div>
+  <h2 class="stitle">What Clients Say</h2>
+  <p class="sdesc">Real feedback from businesses I've helped with Odoo and accounting solutions.</p>
+  <div class="rgrid">
+    <div class="rc"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtext">"Rashid completely transformed our inventory management in Odoo. We had stock mismatches for months and he fixed everything within two weeks. Clean setup, accurate tracking, and he trained our whole team. Highly recommend."</div><div class="rauthor"><div class="ravatar">AK</div><div><div class="rname">Ahmed Khan</div><div class="rrole">CEO, TradeFlow Solutions — Lahore</div></div></div></div>
+    <div class="rc"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtext">"Our Odoo accounting was a mess before Rashid came in. Wrong chart of accounts, unreconciled transactions, reports nobody trusted. He cleaned everything up and now our books are audit-ready. Incredible work."</div><div class="rauthor"><div class="ravatar">SR</div><div><div class="rname">Sarah Rahman</div><div class="rrole">Finance Manager, Nexus Trading — Karachi</div></div></div></div>
+    <div class="rc"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtext">"Hired Rashid to set up Odoo for our retail store with 400+ products. He imported everything accurately, configured reorder rules, and our inventory is now running smoothly. Response time was excellent throughout."</div><div class="rauthor"><div class="ravatar">MH</div><div><div class="rname">Muhammad Hassan</div><div class="rrole">Owner, City Mart — Islamabad</div></div></div></div>
+    <div class="rc"><div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtext">"What I appreciate most about Rashid is he doesn't just configure and disappear. He trained our entire accounts team, made sure they understood the workflows, and has been available for support ever since. Rare to find."</div><div class="rauthor"><div class="ravatar">FA</div><div><div class="rname">Fatima Ali</div><div class="rrole">Operations Director, Global Imports — Dubai</div></div></div></div>
+  </div>
+</section>
+
+<section id="contact" class="altbg">
+  <div class="eyebrow">Get In Touch</div>
+  <h2 class="stitle">Let's Work Together</h2>
+  <div class="cwrap">
+    <div>
+      <div class="cinfo"><h3>Have a project in mind?</h3><p>Whether you need a full Odoo implementation, accounting cleanup, inventory setup, or ongoing support — I'm available and ready to deliver results for your business.</p></div>
+      <div class="ccard"><div class="ccicon"><i class="fas fa-envelope"></i></div><div class="ccd"><span>Email Me</span><strong>rashid75021@gmail.com</strong></div></div>
+      <div class="ccard"><div class="ccicon"><i class="fas fa-phone"></i></div><div class="ccd"><span>Call Me</span><strong>+92 324 0501875</strong></div></div>
+      <div class="ccard"><div class="ccicon"><i class="fas fa-map-marker-alt"></i></div><div class="ccd"><span>Location</span><strong>Lahore, Pakistan</strong></div></div>
+    </div>
+    <form class="cform" onsubmit="return false;">
+      <div class="frow">
+        <div class="fg"><label>Your Name</label><input type="text" placeholder="John Smith"></div>
+        <div class="fg"><label>Your Email</label><input type="email" placeholder="john@company.com"></div>
+      </div>
+      <div class="fg"><label>Subject</label><input type="text" placeholder="Odoo Project"></div>
+      <div class="fg"><label>Budget Range</label><select><option>Select your budget</option><option>$200 - $500</option><option>$500 - $1,000</option><option>$1,000 - $5,000</option><option>$5,000+</option></select></div>
+      <div class="fg"><label>Your Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
+      <button class="sbtn"><i class="fas fa-paper-plane"></i>Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Rashid<em>.</em></div>
+  <p>Odoo Developer &amp; Accountant — Building reliable ERP solutions.</p>
+  <div class="flinks"><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <div class="fsoc">
+    <a href="mailto:rashid75021@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="tel:+923240501875"><i class="fas fa-phone"></i></a>
+    <a href="https://wa.me/923240501875"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+<div style="background:var(--bg2);text-align:center;color:var(--gray);font-size:0.75rem;padding:0.8rem;">&#169; 2026 Rashid Ali. All Rights Reserved.</div>
+
+<script>
+const phrases=['Odoo ERP Solutions.','Clean Financial Books.','Inventory Management.','Reliable Accounting.','Data Accuracy.'];
+let pi=0,ci=0,del=false;
+const el=document.getElementById('typed');
+function type(){const cur=phrases[pi];el.textContent=del?cur.slice(0,ci-1):cur.slice(0,ci+1);del?ci--:ci++;if(!del&&ci===cur.length){setTimeout(()=>{del=true;},1400);}else if(del&&ci===0){del=false;pi=(pi+1)%phrases.length;}setTimeout(type,del?50:90);}
+type();
+function fp(cat,btn){document.querySelectorAll('.pf').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.pc').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';});}
+const secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{const pos=window.scrollY+80;secs.forEach(s=>{const lnk=document.querySelector(`.nav-links a[href="#${s.id}"]`);if(!lnk)return;if(pos>=s.offsetTop&&pos<s.offsetTop+s.offsetHeight){document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));lnk.classList.add('active');}});});
+</script>
+</body>
+</html>
